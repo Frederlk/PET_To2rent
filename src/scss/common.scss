@@ -1,6 +1,0 @@
-%title {
-    font-family: "PT Serif";
-    @include adaptiveValue("font-size", 48, 28, 1200, 479.98, 1);
-    line-height: 100%;
-    color: $white;
-}

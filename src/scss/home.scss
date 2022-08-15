@@ -209,17 +209,19 @@
 .column-about {
     &__body {
         flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
     }
 
     &__row {
         display: flex;
+        flex: 1 1 auto;
         @include adaptiveValue("gap", 30, 15, 1200, 479.98, 1);
         margin-bottom: rem(20);
     }
 
     &__image {
-        flex: 0 1 rem(100);
-        min-width: rem(50);
+        @include adaptiveValue("min-width", 100, 50, 991.98, 479.98, 1);
         img {
             max-width: 100%;
         }

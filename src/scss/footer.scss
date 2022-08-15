@@ -4,13 +4,13 @@
     }
 
     &__top {
-        @include adaptiveValue("padding-top", 100, 40, 1200, 479.98, 1);
-        @include adaptiveValue("padding-bottom", 100, 20, 1200, 479.98, 1);
+        @include adaptiveValue("padding-top", 100, 40, 1200, 767.98, 1);
+        @include adaptiveValue("padding-bottom", 100, 20, 1200, 767.98, 1);
     }
 
     &__bottom {
-        @include adaptiveValue("padding-top", 100, 20, 1200, 479.98, 1);
-        @include adaptiveValue("padding-bottom", 100, 40, 1200, 479.98, 1);
+        @include adaptiveValue("padding-top", 100, 20, 1200, 767.98, 1);
+        @include adaptiveValue("padding-bottom", 100, 40, 1200, 767.98, 1);
         @media (max-width: $mobileSmall) {
             width: 100%;
         }
@@ -34,12 +34,16 @@
     @media (max-width: $tablet) {
         justify-content: space-around;
         flex-wrap: wrap;
+        gap: rem(30);
+    }
+    @media (max-width: em(600)) {
+        gap: rem(50);
     }
     &__column {
         &_manager {
             flex: 0 1 rem(300);
-            @media (max-width: $mobile) {
-                flex: 1 1 100%;
+            @media (max-width: $tablet) {
+                flex: 0 1 calc(50% - rem(15));
             }
         }
         &_blog {
@@ -48,18 +52,16 @@
             @media (max-width: $tablet) {
                 order: 3;
                 padding: 0;
-                margin-top: rem(30);
-            }
-            @media (max-width: $mobile) {
-                flex: 1 1 100%;
             }
         }
         &_reviews {
             flex: 0 1 rem(300);
-            @media (max-width: $mobile) {
-                flex: 1 1 100%;
-                margin-top: rem(30);
+            @media (max-width: $tablet) {
+                flex: 0 1 calc(50% - rem(15));
             }
+        }
+        @media (max-width: em(600)) {
+            flex: 1 1 100%;
         }
     }
 
@@ -67,7 +69,7 @@
         @extend %title;
         text-align: center;
         color: $white;
-        @include adaptiveValue("margin-bottom", 27, 15, 1200, 479.98, 1);
+        @include adaptiveValue("margin-bottom", 27, 20, 1200, 479.98, 1);
     }
 
     &__body {
@@ -97,7 +99,8 @@
         line-height: math.div(21, 18);
         text-align: center;
         color: $white;
-        @include adaptiveValue("margin-bottom", 40, 30, 1200, 479.98, 1);
+        margin-bottom: rem(40);
+        @include adaptiveValue("margin-bottom", 40, 20, 1200, 479.98, 1);
     }
 
     &__button {
@@ -131,18 +134,18 @@
 
     &__image {
         padding-bottom: percent(127, 300);
-        @include adaptiveValue("margin-bottom", 22, 15, 1200, 479.98, 1);
+        margin-bottom: rem(22);
     }
 
     &__text {
         line-height: math.div(21, 18);
         color: $white;
-        @include adaptiveValue("margin-bottom", 22, 15, 1200, 479.98, 1);
+        margin-bottom: rem(22);
     }
 
     &__more {
-        @media (max-width: $mobileSmall) {
-            width: 100%;
+        @media (max-width: em(600)) {
+            display: flex;
         }
     }
 }

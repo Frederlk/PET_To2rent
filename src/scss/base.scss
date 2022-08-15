@@ -5,6 +5,13 @@
 // Стили для полноэкранного блока
 @import "base/fullscreen";
 
+%title {
+    font-family: "PT Serif";
+    @include adaptiveValue("font-size", 48, 28, 1200, 479.98, 1);
+    line-height: 100%;
+    color: $white;
+}
+
 // Стили для отзывчивых картинок (IBG)
 // Сниппет (HTML): ibg (div c картинкой и классами)
 // Сниппет (HTML): ibga (a c картинкой и классами)

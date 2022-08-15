@@ -2,7 +2,6 @@
 // Подключение списка активных модулей
 import { flsModules } from "./modules.js";
 // Вспомогательные функции
-import { isMobile, _slideUp, _slideDown, _slideToggle, FLS } from "./functions.js";
 
 // Работа с полями формы. Добавление классов, работа с placeholder
 export function formFieldsInit(options = { viewPass: false }) {
@@ -220,10 +219,5 @@ export function formSubmit(options = { validate: true }) {
         }, 0);
         // Очищаем форму
         formValidate.formClean(form);
-        // Сообщаем в консоль
-        formLogging(`Форма отправлена!`);
-    }
-    function formLogging(message) {
-        FLS(`[Формы]: ${message}`);
     }
 }
