@@ -6,12 +6,9 @@
     &__slider {
     }
 
-    &__slide {
-    }
-
-    &__image {
-        padding: 0px 0px 700/1920 * 100% 0px;
-        min-height: 250px;
+    &__slide-ibg {
+        padding-bottom: percent(700, 1920);
+        min-height: rem(250);
     }
 
     &__arrows {
@@ -22,20 +19,29 @@
         transform: translate(0px, -50%);
         display: flex;
         justify-content: space-between;
-        padding: 0px 20px;
+        padding: 0px rem(20);
         pointer-events: none;
-        @media (max-width: $md3+px) {
-            padding: 0px 15px;
+        @media (max-width: $mobile) {
+            padding: 0px rem(15);
         }
     }
 
     &__arrow {
         pointer-events: all;
-        @include adaptiv-font(70, 30, 1);
-        transition: all 0.3s ease 0s;
+        -webkit-tap-highlight-color: transparent;
+        &::before {
+            transition: color 0.3s ease 0s;
+            @include adaptiveValue("font-size", 70, 30, 1200, 479.98, 1);
+        }
+        &:active {
+            &::before {
+                transition: color 0.1s ease 0s;
+                color: $white;
+            }
+        }
         @media (any-hover: hover) {
             &:hover {
-                color: #fff;
+                color: $white;
             }
         }
         &_prev {
@@ -46,111 +52,100 @@
         }
     }
 
-    &__bottom {
-    }
-
-    &__bottom-container {
-    }
-
-    &__row {
-        @include adaptiv-value("padding-top", 60, 20, 1);
-        @include adaptiv-value("padding-bottom", 50, 0, 1);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        @media (max-width: 850px) {
-            flex-wrap: wrap;
+    &__container {
+        @include adaptiveValue("padding-top", 60, 20, 1200, 479.98, 1);
+        @include adaptiveValue("padding-bottom", 50, 0, 1200, 479.98, 1);
+        @media (min-width: em(850)) {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            @include adaptiveValue("gap", 70, 30, 1200, 850, 1);
         }
     }
 
     &__label {
-        max-width: 200px;
-        font-size: 24px;
+        max-width: rem(200);
+        font-size: rem(24);
         line-height: 100%;
-        color: #888888;
-        margin-top: 15px;
-        @include adaptiv-value("margin-right", 70, 0, 1);
-        margin: 0px 0px 20px 0px;
-        @media (max-width: 850px) {
-            margin-right: 0;
+        color: $gray_02;
+        margin-top: rem(15);
+        margin-bottom: rem(20);
+        @media (max-width: em(850)) {
             max-width: none;
             text-align: center;
+        }
+        @media (max-width: $mobileSmall) {
+            margin-bottom: rem(30);
         }
     }
 
     &__form {
-        display: flex;
-        margin: 0px 0px 20px 0px;
-        @media (max-width: 850px) {
-            flex: 1 1 100%;
+        position: relative;
+        margin-bottom: rem(20);
+        @media (min-width: $mobileSmall) {
+            display: flex;
         }
     }
 
     &__input {
-        min-width: 430px;
-        min-height: 70px;
-        @media (max-width: 850px) {
-            min-width: 0;
+        @media (min-width: $mobileSmall) {
+            min-height: rem(70);
+        }
+        @media (min-width: em(850)) {
+            min-width: rem(430);
         }
     }
 
     &__btn {
-        padding: 0px 23px 0px 9px;
-        min-height: 70px;
+        padding: 0px rem(23) 0px rem(9);
+        @media (max-width: $mobileSmall) {
+            width: 100%;
+        }
+        @media (min-width: $mobileSmall) {
+            min-height: rem(70);
+        }
     }
 }
-//</ОСНОВНОЙ БЛОК>====================================================================================================
+
+//========================================================================================================================================================
 
 .popular {
-    &__main {
-    }
-
-    &__top {
-        padding: 18px 15px;
-        background-color: #000;
-        @include adaptiv-value("margin-bottom", 100, 20, 1);
-    }
-
     &__title {
-        @extend ._title;
-        line-height: 64 / 48 * 100%;
+        padding: rem(18) rem(15);
+        background-color: $black;
+        @include adaptiveValue("margin-bottom", 100, 20, 1200, 479.98, 1);
+        @extend %title;
+        line-height: math.div(64, 48);
         text-align: center;
-        color: #fff;
+        color: $white;
     }
 
     &__container {
-    }
-
-    &__body {
-        display: flex;
-        margin: 0px -12px;
-        @include adaptiv-value("margin-bottom", 150, 30, 1);
-        @media (max-width: $md2+px) {
-            flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: rem(25);
+        @include adaptiveValue("margin-bottom", 150, 30, 1200, 479.98, 1);
+        @media (max-width: $tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: $mobileSmall) {
+            grid-template-columns: 1fr;
         }
     }
 
     &__column {
-        padding: 0px 12px;
-        flex: 0 1 25%;
         display: flex;
         flex-direction: column;
-        @include adaptiv-value("margin-bottom", 50, 40, 1);
-        @media (max-width: $md2+px) {
-            flex: 0 1 50%;
-        }
-        @media (max-width: $md4+px) {
-            flex: 1 1 100%;
-        }
+        @include adaptiveValue("gap", 30, 15, 1200, 479.98, 1);
+        @include adaptiveValue("margin-bottom", 50, 40, 1200, 479.98, 1);
     }
 
-    &__image {
-        padding: 0px 0px 100% 0px;
+    &__image-ibg {
+        padding-bottom: 100%;
         overflow: hidden;
         border-radius: 50%;
-        @include adaptiv-value("margin-bottom", 30, 15, 1);
         img {
-            transition: all 0.3s ease 0s;
+            transition: transform 0.3s ease 0s;
         }
         @media (any-hover: hover) {
             &:hover {
@@ -164,24 +159,23 @@
     &__subtitle {
         flex: 1 1 auto;
         text-align: center;
-        font-size: 24px;
-        line-height: 24 / 24 * 100%;
-        color: #888888;
-        max-width: 200px;
+        font-size: rem(24);
+        line-height: 100%;
+        color: $gray_02;
+        max-width: rem(200);
         margin: 0 auto;
-        @include adaptiv-value("margin-bottom", 30, 15, 1);
-        transition: all 0.3s ease 0s;
+        transition: color 0.3s ease 0s;
         @media (any-hover: hover) {
             &:hover {
-                color: #000;
+                color: $black;
             }
         }
     }
 
     &__button {
         margin: 0 auto;
-        min-height: 50px;
-        width: 150px;
+        min-height: rem(50);
+        width: rem(150);
         text-align: center;
     }
 }
@@ -189,33 +183,29 @@
 //========================================================================================================================================================
 
 .about {
-    @include adaptiv-value("margin-bottom", 100, 60, 1);
+    @include adaptiveValue("margin-bottom", 100, 60, 1200, 479.98, 1);
     &__container {
-    }
-
-    &__body {
-        display: flex;
-        justify-content: space-between;
-        margin: 0px -15px;
-        @media (max-width: $md2+px) {
-            flex-wrap: wrap;
+        @media (min-width: $tablet) {
+            display: flex;
+            justify-content: space-between;
+            gap: rem(30);
         }
     }
 
     &__column {
-        flex: 0 1 516px;
-        padding: 0px 15px;
-        display: flex;
-        flex-direction: column;
-
-        @media (max-width: $md2+px) {
-            flex: 1 1 100%;
+        @media (min-width: $tablet) {
+            flex: 0 1 rem(500);
+            display: flex;
+            flex-direction: column;
+        }
+        @media (max-width: $tablet) {
             &:not(:last-child) {
-                @include adaptiv-value("margin-bottom", 60, 40, 1);
+                @include adaptiveValue("margin-bottom", 60, 40, 1200, 479.98, 1);
             }
         }
     }
 }
+
 .column-about {
     &__body {
         flex: 1 1 auto;
@@ -223,12 +213,13 @@
 
     &__row {
         display: flex;
-        margin: 0px 0px 20px 0px;
+        @include adaptiveValue("gap", 30, 15, 1200, 479.98, 1);
+        margin-bottom: rem(20);
     }
 
     &__image {
-        flex: 0 0 100/486 * 100%;
-        @include adaptiv-value("margin-right", 30, 15, 1);
+        flex: 0 1 rem(100);
+        min-width: rem(50);
         img {
             max-width: 100%;
         }
@@ -236,46 +227,41 @@
 
     &__title {
         font-family: "PT Serif";
-        @include adaptiv-font(36, 24, 1);
+        @include adaptiveValue("font-size", 36, 24, 1200, 479.98, 1);
         line-height: 100%;
-        color: #000000;
-        transition: all 0.3s ease 0s;
+        color: $black;
+        transition: color 0.3s ease 0s;
         @media (any-hover: hover) {
             &:hover {
-                color: #888888;
+                color: $gray_02;
             }
         }
     }
 
     &__text {
-        font-size: 18px;
-        line-height: 24 / 18 * 100%;
-        color: #000000;
-        @include adaptiv-value("margin-bottom", 40, 20, 1);
+        line-height: math.div(24, 18);
+        color: $black;
+        @include adaptiveValue("margin-bottom", 40, 10, 1200, 479.98, 1);
     }
 
     &__more {
         display: flex;
         align-items: center;
-        color: #888888;
-        font-size: 18px;
-        line-height: 24 / 18 * 100%;
+        color: $gray_02;
+        line-height: math.div(24, 18);
         span {
             text-decoration: underline;
         }
         &::before {
-            color: #000;
-            margin: 0px 6px 0px 0px;
-            font-size: 30px;
-            transition: all 0.3s ease 0s;
+            color: $black;
+            margin-right: rem(6);
+            font-size: rem(30);
+            transition: color 0.3s ease 0s;
         }
         @media (any-hover: hover) {
             &:hover {
-                span {
-                    text-decoration: none;
-                }
                 &::before {
-                    color: #888888;
+                    color: $gray_02;
                 }
             }
         }
@@ -285,12 +271,8 @@
 //========================================================================================================================================================
 
 .fullscreen {
-    &__body {
-        position: relative;
-        height: 100vh;
-    }
-
-    &__image {
+    position: relative;
+    &__bg-ibg {
         position: absolute;
         height: 100%;
         width: 100%;
@@ -298,43 +280,39 @@
         left: 0;
     }
 
-    &__content {
-        @include adaptiv-value("padding-top", 70, 30, 1);
+    &__container {
+        padding: rem(70) 0;
         position: relative;
         z-index: 2;
         text-align: right;
-        @media (max-width: $md3+px) {
+        @media (max-width: $mobile) {
             text-align: center;
         }
     }
 
-    &__container {
-    }
-
     &__title {
-        @extend ._title;
-        color: #fff;
-        margin: 0px 0px 15px auto;
-        max-width: 500px;
-        @media (max-width: $md3+px) {
-            max-width: none;
-            margin: 0px 0px 15px 0px;
+        @extend %title;
+        color: $white;
+        margin-bottom: rem(15);
+        @media (min-width: $mobile) {
+            margin-left: auto;
+            max-width: rem(500);
         }
     }
 
     &__button {
-        background-color: #020202;
-        min-height: 50px;
+        background-color: $dark_01;
+        min-height: rem(50);
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        padding: 0px 18px;
-        color: #fff;
-        transition: all 0.3s ease 0s;
+        padding: 0px rem(18);
+        color: $white;
+        transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
         @media (any-hover: hover) {
             &:hover {
-                background-color: #fff;
-                color: #000;
+                background-color: $white;
+                color: $black;
             }
         }
     }

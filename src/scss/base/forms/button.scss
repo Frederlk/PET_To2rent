@@ -1,37 +1,33 @@
-//<BUTTONS (a.btn+tab)>
-// Снипет (HTML): btn
-
 .btn {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
+    font-size: rem(24);
     line-height: 100%;
-    color: #fff;
-    background: #c4c4c4;
-    min-height: 50px;
-    transition: all 0.3s ease 0s;
+    color: $white;
+    background-color: $gray_01;
+    min-height: rem(50);
+    transition: background-color 0.3s ease 0s;
     &::before {
-        font-size: 18px;
-        margin: 0px 9px 0px 0px;
+        font-size: rem(18);
+        margin-right: rem(9);
     }
     @media (any-hover: hover) {
         &:hover {
-            background: #020202;
+            background-color: $dark_01;
         }
     }
     &_white {
-        min-width: 120px;
-        min-height: 50px;
+        min-width: rem(120);
         font-family: "Roboto Condensed";
-        font-size: 18px;
+        font-size: rem(18);
         line-height: 100%;
-        color: #000000;
-        padding: 0px 10px;
-        background-color: #fff;
+        color: $black;
+        padding: 0px rem(10);
+        background-color: $white;
         @media (any-hover: hover) {
             &:hover {
-                background: #c4c4c4;
+                background-color: $gray_01;
             }
         }
     }

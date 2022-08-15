@@ -1,7 +1,6 @@
-// Заголовки, общие БЄМ блоки и проче...
-._title {
+%title {
     font-family: "PT Serif";
-    @include adaptiv-font(48, 28, 1);
-    line-height: 48 / 48 * 100%;
-    color: #ffffff;
+    @include adaptiveValue("font-size", 48, 28, 1200, 479.98, 1);
+    line-height: 100%;
+    color: $white;
 }

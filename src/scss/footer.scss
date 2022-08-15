@@ -1,230 +1,231 @@
 .footer {
-   &__body {
-      background-color: #000;
-   }
+    background-color: $black;
+    &__container {
+    }
 
-   &__container {
-   }
+    &__top {
+        @include adaptiveValue("padding-top", 100, 40, 1200, 479.98, 1);
+        @include adaptiveValue("padding-bottom", 100, 20, 1200, 479.98, 1);
+    }
 
-   &__top {
-      @include adaptiv-value("padding-top", 100, 20, 1);
-      @include adaptiv-value("padding-bottom", 100, 20, 1);
-   }
+    &__bottom {
+        @include adaptiveValue("padding-top", 100, 20, 1200, 479.98, 1);
+        @include adaptiveValue("padding-bottom", 100, 40, 1200, 479.98, 1);
+        @media (max-width: $mobileSmall) {
+            width: 100%;
+        }
+    }
 
-   &__bottom {
-      @include adaptiv-value("padding-top", 100, 20, 1);
-      @include adaptiv-value("padding-bottom", 100, 20, 1);
-   }
-
-   &__logo {
-      margin: 20px auto;
-      text-align: center;
-      @include adaptiv-value("width", 445, 200, 1);
-      img {
-         max-width: 100%;
-      }
-   }
+    &__logo {
+        display: block;
+        padding: rem(20) 0;
+        width: 100%;
+        text-align: center;
+        background-color: $white;
+        img {
+            @include adaptiveValue("width", 445, 200, 1200, 479.98, 1);
+        }
+    }
 }
+
 .top-footer {
-   display: flex;
-   justify-content: space-between;
-   @media (max-width: $md2+px) {
-      justify-content: space-around;
-      flex-wrap: wrap;
-   }
-   &__column {
-      &_manager {
-         flex: 0 1 300px;
-         @media (max-width: $md3+px) {
-            flex: 1 1 100%;
-         }
-      }
-      &_blog {
-         flex: 0 1 440px;
-         padding: 0px 15px;
-         @media (max-width: $md2+px) {
-            order: 3;
-            padding: 0;
-            margin: 30px 0px 0px 0px;
-         }
-         @media (max-width: $md3+px) {
-            flex: 1 1 100%;
-         }
-      }
-      &_reviews {
-         flex: 0 1 300px;
-         @media (max-width: $md3+px) {
-            flex: 1 1 100%;
-            margin: 30px 0px 0px 0px;
-         }
-      }
-   }
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: $tablet) {
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    &__column {
+        &_manager {
+            flex: 0 1 rem(300);
+            @media (max-width: $mobile) {
+                flex: 1 1 100%;
+            }
+        }
+        &_blog {
+            flex: 0 1 rem(440);
+            padding: 0px rem(15);
+            @media (max-width: $tablet) {
+                order: 3;
+                padding: 0;
+                margin-top: rem(30);
+            }
+            @media (max-width: $mobile) {
+                flex: 1 1 100%;
+            }
+        }
+        &_reviews {
+            flex: 0 1 rem(300);
+            @media (max-width: $mobile) {
+                flex: 1 1 100%;
+                margin-top: rem(30);
+            }
+        }
+    }
 
-   &__title {
-      @extend ._title;
-      text-align: center;
-      color: #fff;
-      @include adaptiv-value("margin-bottom", 27, 15, 1);
-   }
+    &__title {
+        @extend %title;
+        text-align: center;
+        color: $white;
+        @include adaptiveValue("margin-bottom", 27, 15, 1200, 479.98, 1);
+    }
 
-   &__body {
-      display: flex;
-   }
+    &__body {
+        display: flex;
+    }
 
-   &__item {
-      flex: 0 1 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-   }
+    &__item {
+        flex: 0 1 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-   &__inner {
-   }
+    &__inner {
+    }
 
-   &__avatar {
-      margin: 0 auto;
-      border-radius: 50%;
-      overflow: hidden;
-      height: 100px;
-      width: 100px;
-      @include adaptiv-value("margin-bottom", 20, 15, 1);
-      img {
-      }
-   }
+    &__avatar-ibg {
+        margin: 0 auto;
+        border-radius: 50%;
+        overflow: hidden;
+        height: rem(100);
+        width: rem(100);
+        @include adaptiveValue("margin-bottom", 20, 15, 1200, 479.98, 1);
+    }
 
-   &__info {
-      font-size: 18px;
-      line-height: 21 / 18 * 100%;
-      text-align: center;
-      color: #ffffff;
-      @include adaptiv-value("margin-bottom", 40, 30, 1);
-   }
+    &__info {
+        line-height: math.div(21, 18);
+        text-align: center;
+        color: $white;
+        @include adaptiveValue("margin-bottom", 40, 30, 1200, 479.98, 1);
+    }
 
-   &__button {
-   }
+    &__button {
+    }
 
-   &__list {
-   }
+    &__list {
+    }
 
-   &__list-item {
-      display: flex;
-      align-items: center;
-      color: #fff;
-      font-size: 18px;
-      line-height: 100%;
-      transition: all 0.3s ease 0s;
-      &:not(:last-child) {
-         @include adaptiv-value("margin-bottom", 18, 10, 1);
-      }
-      &::before {
-         @include adaptiv-font(30, 24, 1);
-         @include adaptiv-value("margin-right", 37, 15, 1);
-      }
-      @media (any-hover: hover) {
-         &:hover {
-            color: #c4c4c4;
-         }
-      }
-   }
+    &__list-item {
+        display: flex;
+        align-items: center;
+        color: $white;
+        line-height: 100%;
+        transition: color 0.3s ease 0s;
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 18, 10, 1200, 479.98, 1);
+        }
+        &::before {
+            @include adaptiveValue("font-size", 30, 24, 1200, 479.98, 1);
+            @include adaptiveValue("margin-right", 37, 15, 1200, 479.98, 1);
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                color: $gray_01;
+            }
+        }
+    }
 
-   &__reviews-body {
-   }
+    &__reviews-body {
+    }
 
-   &__image {
-      padding: 0px 0px 127/300 * 100% 0px;
-      @include adaptiv-value("margin-bottom", 22, 15, 1);
-   }
+    &__image {
+        padding-bottom: percent(127, 300);
+        @include adaptiveValue("margin-bottom", 22, 15, 1200, 479.98, 1);
+    }
 
-   &__text {
-      font-size: 18px;
-      line-height: 21 / 18 * 100%;
-      color: #ffffff;
-      @include adaptiv-value("margin-bottom", 22, 15, 1);
-   }
+    &__text {
+        line-height: math.div(21, 18);
+        color: $white;
+        @include adaptiveValue("margin-bottom", 22, 15, 1200, 479.98, 1);
+    }
 
-   &__more {
-   }
+    &__more {
+        @media (max-width: $mobileSmall) {
+            width: 100%;
+        }
+    }
 }
+
 .bottom-footer {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   @media (max-width: $md3+px) {
-      flex-wrap: wrap;
-      justify-content: center;
-   }
-   &__column {
-      &:first-child {
-         flex: 0 1 230px;
-         margin-right: 30px;
-         @media (max-width: $md3+px) {
-            flex: 1 1 100%;
-            margin: 0px 0px 30px 0px;
-         }
-      }
-      &_form {
-         flex: 0 1 860px;
-         @media (max-width: $md3+px) {
-            flex: 1 1 100%;
-         }
-      }
-   }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: rem(30);
+    @media (max-width: $mobile) {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-   &__list {
-      li {
-         @media (max-width: $md3+px) {
+    &__list {
+        flex: 0 1 rem(230);
+        @media (max-width: $mobile) {
+            flex: 1 1 100%;
+        }
+        li {
+            @media (max-width: $mobile) {
+                text-align: center;
+            }
+        }
+    }
+
+    &__link {
+        font-size: rem(24);
+        line-height: 150%;
+        color: $white;
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $gray_01;
+            }
+        }
+    }
+
+    &__body {
+        flex: 0 1 rem(860);
+        @media (min-width: $mobile) {
+            display: flex;
+            align-items: center;
+            gap: rem(10);
+        }
+        @media (max-width: $mobile) {
+            flex: 1 1 100%;
+        }
+    }
+    &__label {
+        flex: 0 0 rem(95);
+        line-height: 100%;
+        color: $gray_02;
+        @media (max-width: $mobile) {
             text-align: center;
-         }
-      }
-   }
+            margin: 0px 0px rem(30) 0px;
+        }
+    }
+    &__form {
+        flex: 1 1 auto;
+        position: relative;
+        display: flex;
+        align-items: center;
+        @media (max-width: $mobileSmall) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
 
-   &__link {
-      font-size: 24px;
-      line-height: 150%;
-      color: #ffffff;
-      transition: all 0.3s ease 0s;
-      @media (any-hover: hover) {
-         &:hover {
-            color: #c4c4c4;
-         }
-      }
-   }
+    &__input {
+        min-height: rem(70);
+    }
 
-   &__form {
-      display: flex;
-      align-items: center;
-      @media (max-width: $md3+px) {
-         flex-wrap: wrap;
-         justify-content: center;
-      }
-   }
-
-   &__label {
-      font-size: 18px;
-      line-height: 100%;
-      color: #888888;
-      margin: 0px 10px 0px 0px;
-      @media (max-width: $md3+px) {
-         text-align: center;
-         margin: 0px 0px 15px 0px;
-      }
-   }
-
-   &__input {
-      min-height: 70px;
-   }
-
-   &__button {
-      padding: 0px 40px;
-      min-height: 70px;
-      @media (any-hover: hover) {
-         &:hover {
-            background-color: #fff;
-            color: #000;
-         }
-      }
-      @media (max-width: $md3+px) {
-         flex: 1 1 100%;
-      }
-   }
+    &__button {
+        padding: 0px rem(40);
+        min-height: rem(70);
+        @media (any-hover: hover) {
+            &:hover {
+                color: $black;
+            }
+        }
+        @media (max-width: $mobileSmall) {
+            width: 100%;
+        }
+    }
 }
