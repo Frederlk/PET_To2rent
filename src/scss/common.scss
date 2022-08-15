@@ -1,0 +1,7 @@
+// Заголовки, общие БЄМ блоки и проче...
+._title {
+    font-family: "PT Serif";
+    @include adaptiv-font(48, 28, 1);
+    line-height: 48 / 48 * 100%;
+    color: #ffffff;
+}
