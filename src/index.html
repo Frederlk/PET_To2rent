@@ -1,137 +1,144 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Верстка «NEW_PROJECT_NAME»</title>
-    </head>
-    <body>
-        <div class="rootpage">
-            <h1>«NEW_PROJECT_NAME»</h1>
-            <div class="rootpage__info">Project Features</div>
-            <h2>Pages:</h2>
-            <ol class="rootpage__list">
-                <li><a target="_blank" href="home.html">Home Page</a></li>
-            </ol>
-            <div class="rootpage__contacts">
-                <h2>My contacts:</h2>
-                <p>Email: <a href="mailto:pertrinichshadow@gmail.com">pertrinichshadow@gmail.com</a></p>
-                <p>Phone: <a href="tel:375256474526">+375256474526</a></p>
-                <p>Social network: <a href="">Link to social network</a></p>
-            </div>
-        </div>
-    </body>
-    <style>
-        @charset "UTF-8";
-        @import url("https://fonts.googleapis.com/css?family=Montserrat:regular,700&display=swap");
-        *,
-        *::before,
-        *::after {
-            padding: 0px;
-            margin: 0px;
-            border: 0px;
-            box-sizing: border-box;
-        }
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            min-width: 320px;
-            width: 100%;
-            color: #fff;
-            background-color: #5e5373;
-        }
-        body {
-            font-family: Montserrat;
-            font-size: 100%;
-            line-height: 1;
-            font-size: 1rem;
-        }
-        a {
-            text-decoration: underline;
-            color: #ebe691;
-        }
-        a:visited {
-            text-decoration: underline;
-            color: #aaa768;
-        }
-        a:hover {
-            text-decoration: none;
-        }
-        ul li {
-            list-style: none;
-        }
-        img {
-            vertical-align: top;
-        }
-        .wrapper {
-            width: 100%;
-            min-height: 100%;
-            overflow: hidden;
-        }
-        .rootpage {
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        @media (max-width: 767px) {
-            .rootpage {
-                padding: 30px 15px;
-            }
-        }
-        h1 {
-            color: #ebe691;
-            font-size: 2.5rem;
-            margin: 0px 0px 1.25rem 0px;
-        }
-        @media (max-width: 767px) {
-            h1 {
-                font-size: 1.85rem;
-                margin: 0px 0px 1.25rem 0px;
-            }
-        }
-        h2 {
-            color: #ebe691;
-            font-size: 1.25rem;
-            margin: 0px 0px 1rem 0px;
-        }
-        @media (max-width: 767px) {
-            h2 {
-                font-size: 1.125rem;
-                margin: 0px 0px 1rem 0px;
-            }
-        }
-        .rootpage__info {
-            line-height: 140%;
-            margin: 0px 0px 1.5rem 0px;
-        }
+<html lang="ru">
+    @@include('html/_head.htm',{ "title":"To2rent" })
 
-        .rootpage__list {
-            margin: 0px 0px 2.25rem 1.25rem;
-        }
-        .rootpage__list li:not(:last-child) {
-            margin: 0px 0px 15px 0px;
-        }
-        .rootpage__contacts,
-        .rootpage__tnx {
-            border-radius: 200px;
-            padding: 20px 65px;
-            line-height: 140%;
-        }
-        @media (max-width: 767px) {
-            .rootpage__contacts,
-            .rootpage__tnx {
-                border-radius: 40px;
-                padding: 20px;
-            }
-        }
-        .rootpage__contacts {
-            background: #32b5a4;
-        }
-        .rootpage__contacts a {
-            color: #ebe691;
-        }
-    </style>
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.htm',{})
+            <main class="page">
+                <section class="page__mainslider mainslider">
+                    <div class="mainslider__body">
+                        <div class="mainslider__slider swiper">
+                            <div class="mainslider__wrapper swiper-wrapper">
+                                <div class="mainslider__slide-ibg swiper-slide">
+                                    <img src="@img/content/01.jpg" alt="slide01" />
+                                </div>
+                                <div class="mainslider__slide-ibg swiper-slide">
+                                    <img src="@img/content/02.jpg" alt="slide02" />
+                                </div>
+                            </div>
+                        </div>
+                        <nav class="mainslider__arrows">
+                            <button
+                                type="button"
+                                class="mainslider__arrow mainslider__arrow_prev _icon-arrow"
+                            ></button>
+                            <button
+                                type="button"
+                                class="mainslider__arrow mainslider__arrow_next _icon-arrow"
+                            ></button>
+                        </nav>
+                    </div>
+                    <div class="mainslider__container">
+                        <h3 class="mainslider__label">Поиск Аппартаментов</h3>
+                        <form action="#" data-dev class="mainslider__form">
+                            <input
+                                type="text"
+                                name="city"
+                                data-error="Обязательное поле"
+                                data-required=""
+                                placeholder="Введите город"
+                                class="mainslider__input input"
+                            />
+                            <button type="submit" class="mainslider__btn btn _icon-loop">Найти</button>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="page__popular popular">
+                    <h2 class="popular__title">Самые популярные варианты</h2>
+                    <div class="popular__container">
+                        <article class="popular__column">
+                            <a href="#" class="popular__image-ibg">
+                                <img src="@img/catalog/01.jpg" alt="catalog01" />
+                            </a>
+                            <a href="#" class="popular__subtitle"> Аппартаменты Москва </a>
+                            <a href="#" class="popular__button btn"> детали </a>
+                        </article>
+                        <article class="popular__column">
+                            <a href="#" class="popular__image-ibg">
+                                <img src="@img/catalog/02.jpg" alt="catalog02" />
+                            </a>
+                            <a href="#" class="popular__subtitle"> Аппартаменты Киев </a>
+                            <a href="#" class="popular__button btn"> детали </a>
+                        </article>
+                        <article class="popular__column">
+                            <a href="#" class="popular__image-ibg">
+                                <img src="@img/catalog/03.jpg" alt="catalog03" />
+                            </a>
+                            <a href="#" class="popular__subtitle"> Коттедж Modern Лос Анджелес </a>
+                            <a href="#" class="popular__button btn"> детали </a>
+                        </article>
+                        <article class="popular__column">
+                            <a href="#" class="popular__image-ibg">
+                                <img src="@img/catalog/04.jpg" alt="catalog04" />
+                            </a>
+                            <a href="#" class="popular__subtitle"> Коттедж Семейный Лондон </a>
+                            <a href="#" class="popular__button btn"> детали </a>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="page__about about">
+                    <div class="about__container">
+                        <article class="about__column column-about">
+                            <div class="column-about__body">
+                                <div class="column-about__row">
+                                    <div class="column-about__image">
+                                        <img src="@img/clock.png" alt="часы" />
+                                    </div>
+                                    <a href="#" class="column-about__title"
+                                        >Мы экономим Ваше время и Ваши деньги</a
+                                    >
+                                </div>
+                                <p class="column-about__text">
+                                    Вы можете легко подобрать себе самую лучшую недвижимость для аренды на
+                                    нашем сайте по выгодной цене. Наши менеджеры с удовольствием помогут Вам и
+                                    ответят на все вопросы.
+                                </p>
+                            </div>
+                            <a href="#" class="column-about__more _icon-link">
+                                <span>Подробнее</span>
+                            </a>
+                        </article>
+                        <article class="about__column column-about">
+                            <div class="column-about__body">
+                                <div class="column-about__row">
+                                    <div class="column-about__image">
+                                        <img src="@img/globe.png" alt="мир" />
+                                    </div>
+                                    <a href="#" class="column-about__title"
+                                        >Арендуйте лучшую недвижимость в крупных городах</a
+                                    >
+                                </div>
+                                <p class="column-about__text">
+                                    Наша база элитной недвижимости насчитывает более 5000 вариантов в крупных
+                                    городах мира.Мы поможем Вам выбрать самую лучшую, также предоставим
+                                    дополнительный сервис
+                                </p>
+                            </div>
+                            <a href="#" class="column-about__more _icon-link">
+                                <span>Подробнее</span>
+                            </a>
+                        </article>
+                    </div>
+                </section>
+
+                <section data-fullscreen="" class="page__fullscreen fullscreen">
+                    <div class="fullscreen__bg-ibg">
+                        <img src="@img/content/02.jpg" alt="Коттедж Modern" />
+                    </div>
+                    <div class="fullscreen__container">
+                        <h2 class="fullscreen__title">
+                            Коттедж Modern <br />
+                            Лос Анджелес
+                        </h2>
+                        <a href="#" class="fullscreen__button">Забронировать</a>
+                    </div>
+                </section>
+            </main>
+            @@include('html/_footer.htm',{})
+        </div>
+        @@include('html/_js.htm',{})
+    </body>
 </html>

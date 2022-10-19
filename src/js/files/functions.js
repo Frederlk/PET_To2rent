@@ -36,11 +36,18 @@ export let isMobile = {
         return navigator.userAgent.match(/IEMobile/i);
     },
     any: function () {
-        return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows();
+        return (
+            isMobile.Android() ||
+            isMobile.BlackBerry() ||
+            isMobile.iOS() ||
+            isMobile.Opera() ||
+            isMobile.Windows()
+        );
     },
 };
 // Учет плавающей панели на мобильных устройствах при 100vh
 export function fullVHfix() {
+    isMobile.any() && document.documentElement.classList.add("touch");
     const fullScreens = document.querySelectorAll("[data-fullscreen]");
     if (fullScreens.length && isMobile.any()) {
         window.addEventListener("resize", fixHeight);
